@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: traceforge-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: traceforge
+      POSTGRES_PASSWORD: traceforge_dev_pass
+      POSTGRES_DB: traceforge
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U traceforge -d traceforge"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  collector:
+    build: .
+    container_name: traceforge-collector
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: "postgresql://traceforge:traceforge_dev_pass@postgres:5432/traceforge"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

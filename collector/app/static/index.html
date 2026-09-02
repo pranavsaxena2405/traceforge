@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TRACEFORGE | Behavioral CI/CD & Runtime Intelligence for AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-brand" id="nav-logo">
+      <div class="logo-icon">🔥</div>
+      <div class="brand-text">
+        <span class="brand-title">TRACEFORGE</span>
+        <span class="brand-badge">FOUNDATION v0.1</span>
+      </div>
+    </div>
+
+    <!-- Center Navigation Links for Landing Page -->
+    <nav class="nav-links" id="landing-nav-links">
+      <a href="#what-is-traceforge">What & Why</a>
+      <a href="#features">Features</a>
+      <a href="#code-playground">Integration</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+
+    <!-- Right Controls: Auth, SDK Quickstart & Workspace Switcher -->
+    <div class="nav-controls">
+      <button id="quickstart-wizard-btn" class="btn btn-secondary">
+        <span class="icon">⚡</span> Quickstart SDK
+      </button>
+
+      <div id="org-switcher-container" style="display: none;">
+        <select id="org-switcher" class="select-input">
+          <option value="personal">👨‍💻 Dev Workspace (Personal)</option>
+          <option value="acme">🏢 Acme AI Corp (Team)</option>
+          <option value="enterprise">⚡ Enterprise Scale (Cloud)</option>
+        </select>
+      </div>
+
+      <button id="view-toggle-btn" class="btn btn-secondary">
+        <span class="icon">📊</span> Console Dashboard
+      </button>
+
+      <button id="auth-modal-btn" class="btn btn-google">
+        <svg class="google-icon" viewBox="0 0 24 24" width="16" height="16">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+        </svg>
+        <span id="auth-btn-text">Continue with Google</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- VIEW 1: PUBLIC PRODUCT LANDING PAGE -->
+  <div id="landing-view" class="view-section">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <span class="hero-pill">🚀 The Open-Source Standard for AI Observability</span>
+        <h1 class="hero-title">Behavioral CI/CD & Runtime Intelligence for AI</h1>
+        <p class="hero-subtitle">
+          Capture, evaluate, and prevent behavior drift across AI agents, LLM chains, vector retrieval engines, and tool execution loops before production.
+        </p>
+        <div class="hero-ctas">
+          <button id="hero-get-started" class="btn btn-primary btn-lg">
+            🔥 Launch Live Dashboard
+          </button>
+          <button id="hero-auth-google" class="btn btn-secondary btn-lg">
+            <svg class="google-icon" viewBox="0 0 24 24" width="18" height="18">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            Sign in with Google
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Visual Graphic Preview -->
+      <div class="hero-preview glassmorphic">
+        <div class="preview-header">
+          <span class="preview-dot red"></span>
+          <span class="preview-dot yellow"></span>
+          <span class="preview-dot green"></span>
+          <span class="preview-title">TRACEFORGE Live Execution Stream</span>
+        </div>
+        <div class="preview-body">
+          <div class="preview-row">
+            <span class="st-agent tag">AGENT</span> <strong>customer_support_agent</strong>
+            <span class="duration">2429.4ms</span>
+            <span class="status-badge status-ok">OK</span>
+          </div>
+          <div class="preview-indent">
+            <div class="preview-row"><span class="st-retrieval tag">RETRIEVAL</span> vector_search <span class="duration">60.3ms</span></div>
+            <div class="preview-row"><span class="st-llm tag">LLM</span> claude-3-5-sonnet <span class="duration">120.2ms</span></div>
+            <div class="preview-row"><span class="st-tool tag">TOOL</span> billing_gateway <span class="duration">40.3ms</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What & Why Section -->
+    <section id="what-is-traceforge" class="section-container">
+      <div class="section-title-box">
+        <h2>What & Why TRACEFORGE</h2>
+        <p>Standard APM tools monitor HTTP status codes and CPU usage, but fail to catch non-deterministic AI failures.</p>
+      </div>
+
+      <div class="grid-2col">
+        <div class="card glassmorphic">
+          <div class="card-icon">⚠️</div>
+          <h3>The Problem</h3>
+          <ul class="bullet-list">
+            <li><strong>Non-deterministic AI Drifts</strong>: Prompt changes unexpectedly degrade downstream tool execution.</li>
+            <li><strong>Token Budget Overruns</strong>: Unmonitored recursive loops blow past cost limits.</li>
+            <li><strong>Vector Retrieval Quality</strong>: Low document relevancy top_k matches produce silent hallucinations.</li>
+          </ul>
+        </div>
+
+        <div class="card glassmorphic">
+          <div class="card-icon">⚡</div>
+          <h3>The TRACEFORGE Solution</h3>
+          <ul class="bullet-list">
+            <li><strong>OpenTelemetry Standard</strong>: Native OpenTelemetry primitive instrumentation without vendor lock-in.</li>
+            <li><strong>Automated Behavioral CI/CD</strong>: Pass/Fail SLA regression checks in pull requests and CI test jobs.</li>
+            <li><strong>Full Span Waterfall Debugger</strong>: Complete timeline trees for LLM calls, tool loops, and SQL queries.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Highlights -->
+    <section id="features" class="section-container">
+      <div class="section-title-box">
+        <h2>Built for Developers & AI Engineering Teams</h2>
+      </div>
+
+      <div class="grid-3col">
+        <div class="feature-card glassmorphic">
+          <div class="feat-icon">🐍</div>
+          <h4>2-Line Python SDK</h4>
+          <p>Wrap context managers or use <code>@trace</code> decorators directly on functions in LangChain, LlamaIndex, or custom agent frameworks.</p>
+        </div>
+        <div class="feature-card glassmorphic">
+          <div class="feat-icon">📊</div>
+          <h4>Visual Span Waterfall</h4>
+          <p>Inspect exact parent-child span timelines, token counts, model parameters, and prompt inputs/outputs in real time.</p>
+        </div>
+        <div class="feature-card glassmorphic">
+          <div class="feat-icon">🧪</div>
+          <h4>Automated Behavioral Evals</h4>
+          <p>Score trace executions automatically against Latency SLAs, Token Budgets, and Retrieval Relevancy scores.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Integration Code Playground -->
+    <section id="code-playground" class="section-container">
+      <div class="section-title-box">
+        <h2>Seamless 2-Line Integration</h2>
+        <p>Zero configuration telemetry collection in Python applications.</p>
+      </div>
+
+      <div class="code-playground-box glassmorphic">
+        <div class="code-tabs">
+          <button class="code-tab active" data-tab="tab-sdk">Python SDK</button>
+          <button class="code-tab" data-tab="tab-cli">CLI Assertions</button>
+          <button class="code-tab" data-tab="tab-api">REST Collector API</button>
+        </div>
+        <div class="code-content">
+          <pre id="tab-sdk" class="code-block"><code><span class="k">from</span> traceforge <span class="k">import</span> trace
+
+<span class="c"># Decorator or context manager integration</span>
+<span class="nd">@trace</span>(<span class="s">"customer_support_agent"</span>)
+<span class="k">def</span> <span class="nf">run_agent</span>(prompt: <span class="b">str</span>):
+    <span class="k">with</span> trace.<span class="nf">span</span>(<span class="s">"vector_retrieval"</span>, span_type=<span class="s">"retrieval"</span>):
+        docs = vector_db.query(prompt, top_k=<span class="b">5</span>)
+
+    <span class="k">with</span> trace.<span class="nf">span</span>(<span class="s">"llm_reasoning"</span>, span_type=<span class="s">"llm"</span>):
+        response = llm.generate(prompt, docs)
+    
+    <span class="k">return</span> response</code></pre>
+
+          <pre id="tab-cli" class="code-block" style="display: none;"><code><span class="c"># Inspect live traces in terminal</span>
+python -m traceforge.cli list
+
+<span class="c"># Render span waterfall hierarchy</span>
+python -m traceforge.cli get &lt;TRACE_ID&gt;
+
+<span class="c"># Run automated behavioral CI/CD assertions</span>
+python -m traceforge.cli eval &lt;TRACE_ID&gt; --latency 2500 --max-tokens 2000</code></pre>
+
+          <pre id="tab-api" class="code-block" style="display: none;"><code><span class="c"># Ingest telemetry payload</span>
+POST /api/v1/traces
+
+<span class="c"># Fetch trace waterfall</span>
+GET /api/v1/traces/{trace_id}
+
+<span class="c"># Execute automated evaluations</span>
+POST /api/v1/evaluations/run/{trace_id}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing / Tiers Section -->
+    <section id="pricing" class="section-container">
+      <div class="section-title-box">
+        <h2>Developer & Enterprise Plans</h2>
+        <p>Start open-source locally, scale to enterprise team workspaces.</p>
+      </div>
+
+      <div class="grid-3col">
+        <div class="pricing-card glassmorphic">
+          <h3>Developer (Open Source)</h3>
+          <div class="price">$0 <span>/ forever</span></div>
+          <p>Full Foundation v0.1 features for individual developers & local testing.</p>
+          <ul class="bullet-list">
+            <li>Unlimited Local Traces</li>
+            <li>PostgreSQL Storage</li>
+            <li>Interactive Waterfall UI</li>
+            <li>CLI Quality Gates</li>
+          </ul>
+          <button class="btn btn-secondary btn-full hero-auth-trigger">Start Free</button>
+        </div>
+
+        <div class="pricing-card glassmorphic popular">
+          <div class="popular-badge">RECOMMENDED</div>
+          <h3>Team Growth</h3>
+          <div class="price">$49 <span>/ month</span></div>
+          <p>Shared team telemetry, automated evaluations, and Slack alert integrations.</p>
+          <ul class="bullet-list">
+            <li>Up to 1,000,000 Spans/mo</li>
+            <li>Team Workspaces (5 Users)</li>
+            <li>Automated CI/CD Evals</li>
+            <li>Token Cost Analytics</li>
+          </ul>
+          <button class="btn btn-primary btn-full hero-auth-trigger">Continue with Google</button>
+        </div>
+
+        <div class="pricing-card glassmorphic">
+          <h3>Enterprise Scale</h3>
+          <div class="price">Custom</div>
+          <p>Dedicated cloud infrastructure, custom evaluators, and SSO authentication.</p>
+          <ul class="bullet-list">
+            <li>Unlimited Telemetry Ingestion</li>
+            <li>Custom Organization Workspaces</li>
+            <li>Single Sign-On (SAML/OAuth)</li>
+            <li>24/7 Dedicated SLA Support</li>
+          </ul>
+          <button class="btn btn-secondary btn-full hero-auth-trigger">Contact Enterprise</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          🔥 <strong>TRACEFORGE</strong> — Open-Source AI Behavioral Intelligence Platform
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com" target="_blank">GitHub</a>
+          <a href="#what-is-traceforge">Docs</a>
+          <a href="/health" target="_blank">Collector Status</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- VIEW 2: ULTRA-PREMIUM CONSOLE DASHBOARD -->
+  <div id="dashboard-view" class="view-section" style="display: none;">
+    <main class="dashboard-container">
+      
+      <!-- Top Action Toolbar & Search Bar -->
+      <div class="toolbar-box glassmorphic">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="trace-search-input" class="search-field" placeholder="Search by trace name, ID, or attributes..." />
+        </div>
+        <div class="filter-pills">
+          <button class="filter-pill active" data-filter="all">All Traces</button>
+          <button class="filter-pill" data-filter="OK">🟢 Passed (OK)</button>
+          <button class="filter-pill" data-filter="ERROR">🔴 Errors</button>
+        </div>
+        <div class="toolbar-refresh">
+          <button id="refresh-btn" class="btn btn-secondary btn-sm">🔄 Refresh</button>
+        </div>
+      </div>
+
+      <!-- KPI Analytics Cards Section -->
+      <section class="kpi-grid">
+        <div class="kpi-card glassmorphic glow-card-cyan">
+          <div class="kpi-top">
+            <span class="kpi-label">TOTAL TRACES CAPTURED</span>
+            <span class="trend-badge trend-up">+18.4%</span>
+          </div>
+          <div class="kpi-value" id="stat-total-traces">0</div>
+          <div class="kpi-subtext" id="stat-total-spans">0 total spans executed</div>
+        </div>
+
+        <div class="kpi-card glassmorphic glow-card-emerald">
+          <div class="kpi-top">
+            <span class="kpi-label">BEHAVIORAL SLA PASS RATE</span>
+            <span class="trend-badge trend-ok">Optimal</span>
+          </div>
+          <div class="kpi-value cyan-text" id="stat-pass-rate">100%</div>
+          <div class="kpi-subtext" id="stat-eval-counts">0 passed / 0 failed</div>
+        </div>
+
+        <div class="kpi-card glassmorphic glow-card-purple">
+          <div class="kpi-top">
+            <span class="kpi-label">LLM TOKEN ECONOMICS</span>
+            <span class="trend-badge trend-purple">Realtime</span>
+          </div>
+          <div class="kpi-value purple-text" id="stat-total-tokens">0</div>
+          <div class="kpi-subtext" id="stat-total-cost">Est. Cost: $0.0000 USD</div>
+        </div>
+
+        <div class="kpi-card glassmorphic glow-card-amber">
+          <div class="kpi-top">
+            <span class="kpi-label">LATENCY SLA PERCENTILES</span>
+            <span class="trend-badge trend-amber">p50 / p90 / p99</span>
+          </div>
+          <div class="kpi-value emerald-text" id="stat-p50">0ms</div>
+          <div class="kpi-subtext" id="stat-percentiles">p90: 0ms | p99: 0ms</div>
+        </div>
+      </section>
+
+      <!-- Main Workspace Split Panel -->
+      <div class="workspace-grid">
+
+        <!-- Left Panel: Trace Explorer List -->
+        <section class="panel glassmorphic trace-panel">
+          <div class="panel-header">
+            <h2>Trace Execution Stream</h2>
+            <span class="badge" id="trace-count-badge">0 traces</span>
+          </div>
+          <div class="table-wrapper">
+            <table class="trace-table">
+              <thead>
+                <tr>
+                  <th>STATUS</th>
+                  <th>TRACE NAME</th>
+                  <th>DURATION</th>
+                  <th>SPANS</th>
+                  <th>TIMESTAMP</th>
+                </tr>
+              </thead>
+              <tbody id="trace-table-body">
+                <tr>
+                  <td colspan="5" class="empty-state">Loading recorded traces...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Right Panel: Trace Inspector & Span Waterfall -->
+        <section class="panel glassmorphic inspector-panel">
+          <div class="panel-header">
+            <h2>Span Waterfall Tree & Inspector</h2>
+            <div class="panel-actions" id="inspector-actions" style="display: none;">
+              <button id="run-eval-btn" class="btn btn-primary btn-sm">
+                ✨ Run Behavioral Evals
+              </button>
+            </div>
+          </div>
+
+          <div id="inspector-content" class="inspector-body">
+            <div class="placeholder-state">
+              <div class="placeholder-icon">🔍</div>
+              <h3>Select a trace to inspect waterfall</h3>
+              <p>Click on any trace in the left table to view nested span execution timelines, LLM parameters, and behavioral evaluation reports.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- SDK QUICKSTART WIZARD MODAL -->
+  <div id="wizard-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-card glassmorphic wizard-modal-card">
+      <div class="modal-header">
+        <h3>⚡ TRACEFORGE SDK Quickstart Wizard</h3>
+        <button id="close-wizard-modal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="auth-subtext">Select your AI framework to copy tailored 1-click integration code:</p>
+
+        <div class="framework-selector">
+          <button class="fw-btn active" data-fw="fw-openai">Custom / OpenAI</button>
+          <button class="fw-btn" data-fw="fw-anthropic">Anthropic Claude</button>
+          <button class="fw-btn" data-fw="fw-langchain">LangChain</button>
+          <button class="fw-btn" data-fw="fw-llamaindex">LlamaIndex</button>
+        </div>
+
+        <div class="code-box-wrapper">
+          <div class="code-box-header">
+            <span id="fw-filename">main.py</span>
+            <button id="copy-snippet-btn" class="btn btn-secondary btn-sm">📋 Copy Code</button>
+          </div>
+          <pre id="wizard-code-snippet" class="code-block"><code>pip install traceforge</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTH MODAL ("Continue with Google") -->
+  <div id="auth-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-card glassmorphic auth-modal-card">
+      <div class="modal-header">
+        <h3>Sign in to TRACEFORGE</h3>
+        <button id="close-auth-modal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body auth-modal-body">
+        <p class="auth-subtext">Access your personal workspace or organization telemetry dashboards.</p>
+        
+        <button id="google-login-action" class="btn btn-google btn-full btn-lg">
+          <svg class="google-icon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          Continue with Google
+        </button>
+
+        <div class="auth-divider"><span>OR CONTINUE WITH API KEY</span></div>
+
+        <div class="input-group">
+          <label for="api-key-input">Developer API Key</label>
+          <input type="password" id="api-key-input" class="text-input" placeholder="tf_live_****************" value="tf_live_dev_workspace_99182" />
+        </div>
+
+        <button id="api-key-login-action" class="btn btn-secondary btn-full">
+          Sign In with API Key
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Evaluation Detail Modal / Drawer -->
+  <div id="eval-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-card glassmorphic">
+      <div class="modal-header">
+        <h3 id="eval-modal-title">Behavioral Evaluation Report</h3>
+        <button id="close-modal-btn" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="eval-modal-body">
+        <!-- Dynamic Eval Results -->
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
