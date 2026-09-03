@@ -50,7 +50,7 @@ python -m venv .venv
 source .venv/bin/activate
 
 # Install dependencies and local packages in editable mode
-pip install traceforge-ai ".[dev]"
+pip install traceforge-sdk ".[dev]"
 ```
 
 ### 2. Configuration & Environment Variables
