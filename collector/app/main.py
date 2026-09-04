@@ -82,6 +82,10 @@ def ingest_trace(
 ) -> TraceResponse:
     """Ingest trace and span telemetry payload safely and idempotently."""
     try:
+        try:
+            init_db()
+        except Exception:
+            pass
         # Idempotent Upsert for Trace
         existing_trace = db.query(TraceModel).filter_by(trace_id=payload.trace_id).first()
         if existing_trace:

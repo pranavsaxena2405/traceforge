@@ -27,9 +27,10 @@ TRACEFORGE Foundation v0.1 provides an end-to-end local vertical slice for captu
 
 - `sdk/traceforge/`: Python SDK built on OpenTelemetry API for wrapping trace & span executions.
 - `collector/app/`: FastAPI server for receiving telemetry payloads (`main.py`, `schemas.py`) and PostgreSQL storage persistence (`db.py`, `models.py`).
+- `examples/engineering_agent/`: Hero showcase AI engineering agent powered by **LangGraph** & **MCP** tools (`github_server`, `runtime_server`) instrumented with TRACEFORGE telemetry.
 - `examples/basic_agent/`: Minimal runnable script simulating nested agent operations (`agent_run` -> `llm_call`, `retrieval`, `tool_call`).
-- `tests/`: Automated unit and integration test suite (`test_sdk.py`, `test_api.py`, `test_storage.py`).
-- `docs/`: Product specification (`product.md`) and technical architecture details (`architecture.md`).
+- `tests/`: Automated unit and integration test suite (`test_sdk.py`, `test_api.py`, `test_engineering_agent.py`, `test_storage.py`).
+- `docs/`: Product specification (`product.md`), technical architecture (`architecture.md`), and engineering agent showcase (`engineering-agent.md`).
 
 ---
 
