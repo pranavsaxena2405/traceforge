@@ -1,35 +1,30 @@
 @echo off
 echo ===================================================
-echo   TRACEFORGE 1-Click Push to pranavsaxena2405/traceforge
+echo   TRACEFORGE 1-Click Push to GitHub
+echo   Target: https://github.com/pranavsaxena2405/traceforge.git
 echo ===================================================
 echo.
 
-set GITHUB_REPO=https://github.com/pranavsaxena2405/traceforge.git
+set GIT_CMD="C:\Users\Pranav Saxena\.gemini\tools\git\cmd\git.exe"
 
-echo Target Repository: %GITHUB_REPO%
+if not exist %GIT_CMD% (
+    set GIT_CMD=git
+)
+
+echo 1. Configuring Git author email...
+%GIT_CMD% config user.email "saxena.pranav798@gmail.com"
+%GIT_CMD% config user.name "Pranav Saxena"
+
+echo 2. Checking repository status...
+%GIT_CMD% status
+
 echo.
-
-echo 1. Initializing Git repository...
-git init
-
-echo 2. Staging all files...
-git add .
-
-echo 3. Creating release commit...
-git commit -m "feat: TRACEFORGE v0.1 Release - Open-Source AI Behavioral Intelligence Platform"
-
-echo 4. Setting main branch...
-git branch -M main
-
-echo 5. Linking remote origin...
-git remote add origin %GITHUB_REPO% 2>nul || git remote set-url origin %GITHUB_REPO%
-
-echo 6. Pushing code live to GitHub!
-git push -u origin main
+echo 3. Pushing main branch to https://github.com/pranavsaxena2405/traceforge.git...
+%GIT_CMD% push -u origin main
 
 echo.
 echo ===================================================
-echo   SUCCESS! TRACEFORGE is live on GitHub!
-echo   Repo: https://github.com/pranavsaxena2405/traceforge
+echo   If browser authentication opened, please approve!
+echo   Repo URL: https://github.com/pranavsaxena2405/traceforge
 echo ===================================================
 pause
