@@ -6,6 +6,28 @@ TRACEFORGE Foundation v0.1 provides an end-to-end local vertical slice for captu
 
 ---
 
+## ⚡ Try the Hero Demo in 30 Seconds
+
+Experience TRACEFORGE tracing a multi-step **LangGraph + MCP AI Agent** investigating a production incident:
+
+```bash
+# 1. Install TRACEFORGE SDK
+pip install traceforge-telemetry
+
+# 2. Clone repository & start Collector
+git clone https://github.com/pranavsaxena2405/traceforge.git
+cd traceforge
+python -m uvicorn collector.app.main:app --port 8000
+
+# 3. Run the AI Engineering Agent Hero Demo (in another terminal)
+python examples/engineering_agent/main.py
+
+# 4. Open Live Telemetry Dashboard
+# Navigate to http://localhost:8000/dashboard in your browser
+```
+
+---
+
 ## Architecture Overview
 
 ```
